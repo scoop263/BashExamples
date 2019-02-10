@@ -1,0 +1,96 @@
+So Variables, what are they?
+Well they allow us to store contents into
+a space and allows us to call upon them at a
+later time
+
+If you wanted to create a variable from your 
+terminal all you need to do is this
+
+VAR="Im a Variable"
+Note name and contents dont need to be the same
+	just decided to use this 
+now in order to extract that information we use
+a $ followed with the variable name
+Example:
+	$VAR
+Other ways of doing it are
+	${VAR}
+Reason you use the above method is to concatenate
+multiple variables together.
+
+So we will now run the command
+>echo $VAR
+>Im a Variable
+
+PT2 Variables and what you can do with them
+For the upcomming examples, in order to avoid confusion
+We will be reading Left to Right
+You can also be very selective with what parts of a variable
+you want to see from the output
+For Example
+	>STUFF=Variable.Stuff
+	>echo $STUFF
+	>Variable.Stuff
+	What the variable unchanged looks like
+		>echo ${STUFF%.*}
+		>Variable
+		Breakdown:
+			STUFF is the variable
+			% Signifies the last instance of the upcoming character and
+			shows everything to the left of that character
+			* wildcard, so show the rest of the variable
+	
+You can also do the same thing but to the right of the variable
+For Example:
+	>STUFF=Variable.Stuff
+	>echo ${STUFF#*.}
+	>Stuff
+	Breakdown:
+		STUFF is the variable
+		# Signifies the first instance of the upcoming character and
+		shows everything to the right of that character
+		* Wildcard, so show the rest of the variable.
+
+You are also able to further this method by adding an addition % or #
+For Example:
+	>STUFF=Variable.Variable.Variable.Stuff
+	>echo ${STUFF##*.}
+	>Stuff
+	>echo ${STUFF%%.*}
+	>Variable
+	Breakdown:
+		## - Checks the very last instance of the character,
+		shows the rest of the variable to the right of the character
+		%% - checks the very first instance of the character and then 
+		shows the rest of the variable to the left of the character
+
+PT3 Variable Substitution
+Incase you need to substitute certain contents of the variable you can!
+Note: This will only substitute the first instance from Left to Right
+For Example:
+	>STUFF="I would Like a Dog"
+	>echo ${STUFF/a/the}
+	Breakdown:
+		a - is the character(s) that you would like to substitute
+		the - is going to be the string of characters that will be 
+		changed to
+	>I would Like the dog
+	
+	>STUFF="abcdefghijklmnopqrstuvwxyz"
+	>echo ${STUFF/a/abc}
+	>abcbcdefghijklmnopqrstuvwxyz
+	
+	>STUFF="How Are You?"
+	>echo ${STUFF// }
+	>HowAreYou?
+
+PT3-1 Capitalization and Lowercase
+In Bash4.0 and on they introduced bash substitution that allows captitalization
+and lowercase, there are other methods used before Bash4.0 but however those use commands
+In bash4.4:
+For Example:
+	>STUFF="AaBbCc"
+	>echo ${STUFF^^}
+	>AABBCC
+	>echo ${STUFF,,}
+	>aabbcc
