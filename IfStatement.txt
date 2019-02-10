@@ -1,0 +1,58 @@
+If Statements - What are they?
+To boil it down If Statements are basically
+selective conditions, when a condition is True
+then that piece will only execute.
+If Conditions start with an if and it closes with fi, if backwards.
+Lets say:
+	Variable A is 50
+	Variable B is 25
+
+Example1:
+	If A is greater than 49, then
+	say "A is greater than 49"
+	Syntax:
+		if [[ $A -gt 49 ]]
+		then
+			echo "A is greater than 49"
+		fi
+
+If Else Statement, we go more indepth of If statements,
+introducing Else, Else allows us to execute a condtion when
+the above conditions evaluated False.
+
+Example2:
+	Using A and B from the above example
+	If B is greater than 49, then say 
+	"B is greater than 49", if not
+	say "B is less than 49"
+	Syntax:
+		if [[ $B -gt 49 ]]
+		then
+			echo "B is greater than 49"
+		else
+			echo "B is less than 49"
+		fi
+		
+	Variable B is less than 49 so it is evaluated false
+
+Now going further in If Statements, lets introduce:
+If ElseIf Statement
+With this you are giving it more opportunity to evaluate True.
+
+Example3:
+	Using A and B from the above example
+	If A is less than 49, then say "A is less than 49"
+	If B is less than 26, then say "B is less than 26"
+	If not, say "A is greater than 50 and B is greater than 26"
+	Syntax:
+		if [[ $A -lt 49 ]]
+		then
+			echo "A is less than 49"
+		elif [[ $B -lt 26 ]]
+		then
+			echo "B is less than 26"
+		else
+			echo "A is greater than 50 and B is greater than 26"
+		fi
+
+	First Condition is evaluated False, Second Condition is evaluated True
