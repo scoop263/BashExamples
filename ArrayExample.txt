@@ -1,0 +1,74 @@
+Arrays can be quite useful, but Bash doesn't support the
+full extent of Arrays as C, C#, etc do
+
+In order to avoid unwanted confusion I will only be discussing
+one-dimensional arrays, and not two-dimensional arrays, or three-dimensional arrays
+Reasons are simple, bash doesn't play nice and has never been a 
+language that uses the full extent of Arrays so we only on
+average make one-dimensional arrays, and refer them to as
+"Lists", it is possible to make a two-dimensional array in Shell-Scripting
+as so many forum sites will point out but they even know 
+Bash doesn't support it quite as well as it should.
+
+Now things to cover:
+	What is an Array?
+	Bash uses a base index of 0.
+
+	What is an Array?
+	
+	Think of an array like a shopping list
+	When you write a list in general you list off one thing
+	then go to the next line and write the next item right? 
+	An array is no different.
+	
+	An array is a collection of elements, in a way instead
+	of making 5 variables that contain the same type of information
+	we put it in an array and then access the contents that way.
+	
+	You might be asking well why not just make 5 variables?
+	Well good question to be honest i don't use arrays, but its covered
+	in every basic programming class and is in Bash so why not?
+	One reason you would create an array over making multiple variables 
+	is say your script is going to gather information that is 
+	going to differ each time, you can't predict how many variables you need
+	so you use an array which could expand and that will cover all your bases
+	
+	Bash uses a base index of 0
+	
+	in basic terms all this means is if you want to list off the
+	first element in an array you use 0, not 1, here is an example:
+	I create an array called Fruit, and I set the elements:
+	Pear, Apple, Orange, Blackberry, Blueberry.
+	Fruit[0]= Pear
+	Fruit[1]= Apple
+	Fruit[2]= Orange
+	Fruit[3]= Blackberry
+	Fruit[4]= Blueberry
+
+Creating an Array:
+	declare -a ARRAYNAME
+	ARRAYNAME=(100 75 50 25 0)
+Reading Array Elements
+	echo ${ARRAYNAME[*]}
+	OUTPUT: 100 75 50 25 0
+	
+	echo ${ARRAYNAME[0]}
+	OUTPUT: 100
+	
+	echo ${#ARRAYNAME[*]}
+	OUTPUT: 5
+	# - will show the amount of elements in the array	
+	
+	echo ${#ARRAYNAME[0]}
+	OUTPUT:3
+	# - will show the amount of characters of that element
+
+Deleting Arrays
+	Depending on the language in question it is a must to delete
+	your Array that you no longer need, but not deleting the array in
+	bash isnt the end of the world.
+
+	unset ARRAYNAME
+
+	unset ARRAYNAME[1]
+		^ This will remove that element, not the entire array
