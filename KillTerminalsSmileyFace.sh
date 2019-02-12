@@ -24,3 +24,5 @@ awk '{print $2}' $PROCESSCONTENTS > $PARENTPROCESSID
 while read i; do
 	pkill -KILL -P $i
 done < $PARENTPROCESSID
+rm -f $PROCESSCONTENTS
+rm -f $PARENTPROCESSID
