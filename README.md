@@ -1,12 +1,13 @@
 This is a quick tutorial on how to use coding-esque 
-techniques inorder to create automation of terminal
+techniques in order to create automation of terminal
 commands so lets get down to the basics!
 
 Believe it or not but if you are relatively comfortable
-with terminal commands you already have the core fundamentals
-of scripting but the only thing you are missing is
-regex, loops, if statements, variable substitution, arrays
-functions.
+with terminal commands you already have the tough part taken
+care of, the part you need to work on is the notorious coding
+part. These are If Statements, Functions, Arrays, Variables,
+Variable Substitution, Loops, and regex. Now these are the core
+fundaments of any coding language.
 
 These tools allow you to create a more robust script.
 
@@ -31,3 +32,12 @@ Example:
 	gonna say "not a tty" because it wasnt ran from a terminal
 	Morale of the story is when you want the system to run it test it more.
 
+Where should I start with the files given?
+
+In most cases I gave you two files, one being .sh and the other being .txt
+
+.txt contains explainations of the concept of the topic
+.sh contains the scripting syntax and it being in a way to execute.
+
+Feel Free to bounce around, but if you dont know what a variable is,
+the start off with VariableManipulation.sh/.txt
