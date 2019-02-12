@@ -1,0 +1,76 @@
+Loops! 
+Loops are very useful, you are able to execute
+commands any amount of times.
+
+There are 3 types of loops: Do While, Do Until, and For Loop
+
+Do Until will always execute, then will always execute until false
+Do While will only execute when its true, then will always execute until False
+For Loop will always execute until its sequence is over,
+
+In While Loops, and Until Loops you can make them Infinite loops
+For Loops Can't be infinite and will automatically increment after executing until its done
+
+For Examples:
+	
+	for i in $( ls )
+	do
+		echo $i
+	done
+	
+	OUTPUT:
+	(There are 4 files, FILE1 FILE2 FILE3 FILE4)
+	FILE1
+	FILE2
+	FILE3
+	FILE4
+
+	for i in `seq 1 4`
+	do
+		echo $i
+	done
+	
+	OUTPUT:
+	1
+	2
+	3
+	4
+
+Do While Examples
+
+	while [ true ]
+	do
+		echo Hi
+	done
+	
+	^^^^ That is an infinite Loop ^^^^
+
+	COUNTER=0
+	while [ $COUNTER -lt 5 ]
+	do
+		echo $COUNTER
+		COUNTER=$(( COUNTER+1 )) 
+	done
+
+	OUTPUT:
+	0
+	1
+	2
+	3
+	4
+	
+Until Example:
+	COUNTER=1
+	until [ $COUNTER -gt 5 ]
+	do
+		echo $COUNTER
+		COUNTER=$(( COUNTER+1 ))
+	done
+
+	OUTPUT:
+	1
+	2
+	3
+	4
+	5
+
