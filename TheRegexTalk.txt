@@ -1,0 +1,63 @@
+So Regex, probably the most ugliest thing to look at but really important
+Eventually we get to the point where we cant 100% know what to expect
+but we already have an idea, for example you want to validate a legit 
+credit card number, and you are presented with a range of numbers, you
+know a credit card number cant start off with 1 and it needs to have 16 digits
+so in these circumstances we use regex.
+
+Regex is quite powerful
+
+But lets discuss the two anchors ^ and $:
+	^ will match the beginning of the line
+	$ will match the end of the line
+Example:
+	'^This' will match "This cat has a tail"
+	`tail$` will match "This cat has a tail"
+
+Brackets [ ]
+	Using the Brackets allows you to match any one character in them/ or not any one character
+Example:
+	[abv] - matches anything with the characters inside the brackets
+	[^abv] - will match everything else besides the characters inside the brackets
+		With this one it can be tricky since if you have a string that contains
+		other characters besides ab and v, it will match them so you will still match
+		the lines
+	[0-9] - Numeric Range -- Will match any number
+	[a-z] - LowerCase Range -- will match any lowercase alpha character
+	[A-Z] - UpperCase Range -- will match any uppercase alpha character
+	[:aplha:] - Alpha Range -- will match any alpha character being [a-z] and [A-Z]
+	[:blank:] -- Will match space or tab
+	[:digit:] - Numberic Range -- will match any number
+	[:alnum:] -- a-z A-Z 0-9
+	[:upper:] -- A-Z range
+	[:lower:] -- a-z Range 
+There is more but this is good enough.
+So some examples
+	File "FILE" Contains Lines:
+		This Should Be Enough
+		01531
+		0EF4A1
+		ld52
+	
+	grep -E ^This FILE
+	OUTPUT: This Should Be Enough
+	grep -E Enough$ FILE
+	OUTPUT: This Should Be Enough
+	grep -E ^Should FILE
+	OUTPUT: <EMPTY>
+	grep -E [0-9] FILE
+	OUTPUT: 01531
+		OEF4A1
+		ld52
+	grep -E [0-9][A-Z] FILE
+	OUTPUT: 0EF4A1
+	grep -E [0-9][a-z] FILE
+	OUTPUT: <EMPTY>
+	grep -E [a-z][0-9] FILE
+	OUTPUT: ld52
+
+There is a lot more to learn about regex, like Extended Regex, but I am not very
+familar with Regex as it is so im just going over the extent im comfortable with.
+
+NOTE: There will not be a .sh of this example because I dont want people to run a 
+	script that adds files and removes files to anyone's filesystem of my own making.
