@@ -2,7 +2,6 @@
 # KillTerminalSmileyFace.sh
 # This script will kill any and all
 # terminals
-set -x
 #-------- Functions ----------
 terminalName() {
 	if [[ -z $1 ]]; then
